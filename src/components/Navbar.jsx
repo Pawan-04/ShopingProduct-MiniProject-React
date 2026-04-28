@@ -1,6 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ProductContext } from '../utils/Context'
+import { NavLink } from 'react-router-dom';
 
 function Navbar() {
+
+  const [product] = useContext(ProductContext);
+
+  const distinct_product = product.reduce((acc,cv) => [...acc,cv.category],[])
+  // console.log(distinct_product)
+  const unique_category_product = [...new Set(distinct_product)]
+  // console.log(unique_category_product)
+
+  
+
   return (
    <>
    <nav className="w-[20%] bg-gray-100 h-screen p-2 flex flex-col gap-5">
@@ -8,13 +20,10 @@ function Navbar() {
         <hr className='border-sky-500'/>
         <ul className="px-2 flex flex-col gap-3">
           <h1 className='text-2xl font-bold '>Category Filter</h1>
-          <li className="flex items-center gap-1"><span className=" inline-block w-4 h-4 bg-green-300 rounded-full">
-            </span >Cart2</li>
-          <li className="flex items-center gap-1">
-            <span className=" inline-block w-4 h-4 bg-red-300 rounded-full">
-              </span>Cart1</li>
-          <li className="flex items-center gap-1">
-            <span className=" inline-block w-4 h-4 bg-blue-300 rounded-full"></span>Cart3</li>
+          {unique_category_product.map((cat,index)=> 
+            <NavLink to={`/?category=${cat}`}  key ={index} className="flex items-center gap-1"><span className=" inline-block w-4 h-4 bg-green-300 rounded-full">
+            </span >{cat}</NavLink>
+          )}
         </ul>
       </nav>
    </>

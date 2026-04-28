@@ -8,13 +8,13 @@ import Loading from './Loading'
 function Details() {
 
   const {id} = useParams()
-  console.log(id)
+  // console.log(id)
   const [singleProduct,setSingle] = useState(null)
 
   const getSingleProduct = async() => {
     try{
     const item = await axios(`/products/${id}`) 
-    console.log(item)
+    // console.log(item)
     setSingle(item.data)
     }
     catch(err){
