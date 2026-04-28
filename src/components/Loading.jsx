@@ -2,9 +2,11 @@ import React from 'react'
 
 const Loading = () => {
   return (
-    <div className="bg-black text-8xl text-white font-bold flex items-center justify-center h-screen w-screen">
-      Loading...
-    </div>
+    <div className="h-screen w-screen flex items-center justify-center bg-black">
+  <div className="animate-pulse text-white text-3xl tracking-widest">
+    Loading...
+  </div>
+</div>
   )
 }
 

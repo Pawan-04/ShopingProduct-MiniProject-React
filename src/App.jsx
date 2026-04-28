@@ -4,6 +4,7 @@ import Home from './components/Home'
 import Details from './components/Details'
 
 
+
 function App() {
   const {search, pathname} = useLocation()
   return (

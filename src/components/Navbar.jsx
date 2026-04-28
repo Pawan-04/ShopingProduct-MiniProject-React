@@ -10,6 +10,11 @@ function Navbar() {
   // console.log(distinct_product)
   const unique_category_product = [...new Set(distinct_product)]
   // console.log(unique_category_product)
+   const color = () => {
+        return `rgba(${(Math.random() * 255).toFixed()},
+    ${(Math.random() * 255).toFixed()},
+    ${(Math.random() * 255).toFixed()},0.4)`;
+    };
 
   
 
@@ -21,7 +26,7 @@ function Navbar() {
         <ul className="px-2 flex flex-col gap-3">
           <h1 className='text-2xl font-bold '>Category Filter</h1>
           {unique_category_product.map((cat,index)=> 
-            <NavLink to={`/?category=${cat}`}  key ={index} className="flex items-center gap-1"><span className=" inline-block w-4 h-4 bg-green-300 rounded-full">
+            <NavLink to={`/?category=${cat}`}  key ={index} className="flex items-center gap-1"><span style={{ backgroundColor: color() }} className=" inline-block w-4 h-4 bg-green-300 rounded-full">
             </span >{cat}</NavLink>
           )}
         </ul>
